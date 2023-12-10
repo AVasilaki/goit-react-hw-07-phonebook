@@ -2,15 +2,18 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { deleteContact } from '../../redux/contactsSlice';
+import { selecVisibletContacts } from '../../redux/selectors';
 
-export const Contacts = () => {
-  
-  const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter);
-  const filtredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().trim().includes(filter.value.toLowerCase().trim())
-  );
-
+const Contacts = () => {
+  // const contacts = useSelector(state => state.contacts);
+  // console.log(selectFilter);
+  // const contacts = useSelector(selectContacts);
+  // const filter = useSelector(state => state.filter);
+  // const filter = useSelector(selectFilter);
+  // const filtredContacts = contacts.filter(contact =>
+  //   contact.name.toLowerCase().trim().includes(filter.toLowerCase().trim())
+  // );
+  const filtredContacts = useSelector(selecVisibletContacts);
   const dispatch = useDispatch();
 
   const handleDeletContact = id => {
@@ -44,3 +47,4 @@ Contacts.propTypes = {
   contacts: PropTypes.array,
   onRemoveContact: PropTypes.func,
 };
+export default Contacts;
