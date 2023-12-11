@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { deleteContact } from '../../redux/contactsSlice';
+import { deleteContact } from '../../redux/operation';
 import { selecVisibletContacts } from '../../redux/selectors';
 
 const Contacts = () => {
@@ -24,10 +24,10 @@ const Contacts = () => {
     <>
       <h2 className=' mb-4 text-3xl'>Contacts:</h2>
       <ul>
-        {filtredContacts.map(({ id, name, number }) => (
+        {filtredContacts.map(({ id, name, phone }) => (
           <li key={id} className='mb-2 rounded-md border-2 p-4'>
             <p>
-              {name}: {number}
+              {name}: {phone}
             </p>
             <button
               type='button'

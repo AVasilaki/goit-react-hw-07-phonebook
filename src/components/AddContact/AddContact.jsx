@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+// import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/operation';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 export const AddContact = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.items);
 
   const onSubmit = evt => {
     evt.preventDefault();
@@ -13,6 +14,7 @@ export const AddContact = () => {
     const form = evt.currentTarget;
     const name1 = form.elements.name.value;
     const number1 = form.elements.number.value;
+    const contact = { name: name1, phone: number1 };
     if (
       contacts.find(contact => contact.name.toLowerCase().trim() === name1.toLowerCase().trim())
     ) {
@@ -21,7 +23,7 @@ export const AddContact = () => {
       return;
     }
 
-    dispatch(addContact(name1, number1));
+    dispatch(addContact(contact));
 
     evt.target.reset();
   };
@@ -45,7 +47,7 @@ export const AddContact = () => {
           type='tel'
           name='number'
           required
-          pattern='^[ 0-9]+$'
+          // pattern='^[ 0-9]+$'
           className='ml-2 rounded-lg bg-blue-500 px-2 text-white'
         />
       </label>
