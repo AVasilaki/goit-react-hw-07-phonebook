@@ -5,14 +5,6 @@ import { deleteContact } from '../../redux/operation';
 import { selecVisibletContacts } from '../../redux/selectors';
 
 const Contacts = () => {
-  // const contacts = useSelector(state => state.contacts);
-  // console.log(selectFilter);
-  // const contacts = useSelector(selectContacts);
-  // const filter = useSelector(state => state.filter);
-  // const filter = useSelector(selectFilter);
-  // const filtredContacts = contacts.filter(contact =>
-  //   contact.name.toLowerCase().trim().includes(filter.toLowerCase().trim())
-  // );
   const filtredContacts = useSelector(selecVisibletContacts);
   const dispatch = useDispatch();
 

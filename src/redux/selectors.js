@@ -1,7 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 export const selectContacts = state => {
-  console.log(state);
   return state.contacts.items;
 };
 export const selectIsLoading = state => {

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-// import { addContact } from '../../redux/contactsSlice';
 import { addContact } from '../../redux/operation';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 
